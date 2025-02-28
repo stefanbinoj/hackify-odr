@@ -1,86 +1,117 @@
-import { Plus } from "lucide-react"
+import { ArrowRight, Scale, Users } from "lucide-react"
+import Link from "next/link"
+import { FaPlus } from "react-icons/fa"
 
-const Home = () => {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-200 p-8">
-      <div className="mx-6 flex max-w-7xl gap-6">
-        {/* Case Statistics Card */}
-        <div className="ml-4 min-h-[80vh] min-w-[40vw] rounded-lg bg-white p-6 shadow-lg">
-          <h2 className="mb-4 text-xl font-semibold text-gray-800">
-            Case Statistics
-          </h2>
-          <div className="mb-6 flex gap-4">
-            <div className="rounded-lg bg-green-100 p-4">
-              <p className="mb-2 text-sm font-medium text-green-600">
-                No. of Cases
-              </p>
-              <p className="text-3xl font-bold text-green-700">7</p>
-            </div>
-            <div className="rounded-lg bg-blue-100 p-4">
-              <p className="mb-2 text-sm font-medium text-blue-600">
-                Cases Resolved
-              </p>
-              <p className="text-3xl font-bold text-blue-700">4</p>
+    <div className="ml-5 min-h-screen bg-gray-50 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Case Statistics Card */}
+          <div className="w-[370px] overflow-hidden rounded-xl bg-white shadow-lg">
+            <div className="p-6">
+              <h2 className="mb-4 text-xl font-semibold text-gray-800">
+                Case Statistics
+              </h2>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="rounded-lg bg-green-50 p-4">
+                  <p className="text-sm font-medium text-green-800">
+                    Number of Cases
+                  </p>
+                  <p className="text-3xl font-bold text-green-600">7</p>
+                </div>
+                <div className="rounded-lg bg-orange-50 p-4">
+                  <p className="text-sm font-medium text-orange-600">
+                    Cases Resolved
+                  </p>
+                  <p className="text-3xl font-bold text-orange-600">4</p>
+                </div>
+                <Link
+                  href="/track-cases"
+                  className="mt-2 flex items-center justify-between rounded-lg bg-gray-100 p-4 transition-colors hover:bg-gray-200"
+                >
+                  <span className="font-medium text-gray-800">
+                    Track My Cases
+                  </span>
+                  <ArrowRight className="h-5 w-5 text-gray-600" />
+                </Link>
+              </div>
             </div>
           </div>
-          <a
-            href="#/track-cases"
-            className="block rounded-md bg-indigo-600 px-4 py-2 text-center font-medium text-white transition duration-200 hover:bg-indigo-700"
-          >
-            Track My Cases
-          </a>
-        </div>
 
-        {/* Mediation Card */}
-        <div className="flex-col gap-5">
-          <div className="mb-5 rounded-lg bg-white p-6 shadow-lg">
-            <h2 className="mb-4 text-xl font-semibold text-gray-800">
-              Mediation
-            </h2>
-            <p className="mb-6 leading-relaxed text-gray-600">
-              Learn about our mediation process and how it can help you resolve
-              disputes efficiently and cost-effectively.
-            </p>
-            <a
-              href="#/mediation"
-              className="block rounded-md bg-amber-500 px-4 py-2 text-center font-medium text-white transition duration-200 hover:bg-amber-600"
-            >
-              Know More About Mediation
-            </a>
+          {/* Mediation Card */}
+          <div className="ml-12 w-[300px] overflow-hidden rounded-xl bg-white shadow-lg">
+            <div className="p-6">
+              <div className="mb-4 flex items-center">
+                <Users className="mr-2 h-6 w-6 text-indigo-600" />
+                <h2 className="text-xl font-semibold text-gray-800">
+                  Mediation
+                </h2>
+              </div>
+              <p className="mb-6 text-gray-600">
+                Learn about our mediation services and how they can help resolve
+                disputes efficiently and amicably.
+              </p>
+              <Link
+                href="/user/"
+                className="mt-25 inline-flex items-center font-medium text-orange-400 hover:text-orange-600"
+              >
+                Know more about Mediation
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
           </div>
 
           {/* Arbitration Card */}
-          <div className="rounded-lg bg-purple-600 p-6 shadow-lg">
-            <h2 className="mb-4 text-xl font-semibold text-white">
-              Arbitration
-            </h2>
-            <p className="mb-6 leading-relaxed text-purple-100">
-              Explore our arbitration services designed to provide binding
-              decisions for complex legal disputes.
-            </p>
-            <a
-              href="#/arbitration"
-              className="block rounded-md bg-white px-4 py-2 text-center font-medium text-purple-700 transition duration-200 hover:bg-purple-50"
-            >
-              Know More About Arbitration
-            </a>
+          <div className="ml-8 w-[300px] overflow-hidden rounded-xl bg-white text-black shadow-lg">
+            <div className="p-6">
+              <div className="mb-4 flex items-center">
+                <Scale className="mr-2 h-6 w-6 text-indigo-600" />
+                <h2 className="text-xl font-semibold text-black">
+                  Arbitration
+                </h2>
+              </div>
+              <p className="mb-6 text-black">
+                Discover how our arbitration services provide a binding
+                resolution to complex disputes through expert arbitrators.
+              </p>
+              <Link
+                href="/arbitration"
+                className="mt-25 inline-flex items-center font-medium text-orange-500 hover:text-purple-200"
+              >
+                Know more about Arbitration
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Book Now Button */}
-      <a
-        href="#/booking"
-        className="group fixed right-6 bottom-6 flex items-center space-x-2 rounded-full bg-blue-600 px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-700"
-      >
-        <span>Book Now</span>
-        <Plus
-          size={20}
-          className="transition-transform duration-300 group-hover:rotate-90"
-        />
-      </a>
+        {/* Book Now Button */}
+        <div className="fixed right-8 bottom-8 rounded-4xl">
+          <Link
+            href="/book-appointment"
+            className="flex items-center rounded-4xl bg-orange-400 px-6 py-3 text-white shadow-lg transition-colors hover:bg-orange-500"
+          >
+            <FaPlus size={20} />
+            <span className="ml-3 font-medium">File Case</span>
+          </Link>
+        </div>
+      </div>
+      <h1 className="mb-5 ml-10 text-2xl">Case Stories</h1>
+      <div className="flex justify-center gap-10">
+        <div className="h-[150px] w-[450px] rounded-2xl bg-white">
+          <img
+            src="/images/case1.png"
+            className="h-full w-full rounded-2xl object-cover object-[50%_10%]"
+          />
+        </div>
+        <div className="h-[150px] w-[450px] rounded-2xl bg-white">
+          <img
+            src="/images/case1.png"
+            className="h-full w-full rounded-2xl object-cover object-[50%_10%]"
+          />
+        </div>
+      </div>
     </div>
   )
 }
-
-export default Home
