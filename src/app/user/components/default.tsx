@@ -97,18 +97,18 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <h1 className="mb-5 ml-10 text-2xl">Case Stories</h1>
-      <div className="flex justify-center gap-10">
-        <div className="h-[150px] w-[450px] rounded-2xl bg-white">
+      <h1 className="mb-5 ml-3 text-2xl">Case Stories</h1>
+      <div className="ml-[-70px] flex justify-center gap-10">
+        <div className="h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
           <img
-            src="/images/case1.png"
-            className="h-full w-full rounded-2xl object-cover object-[50%_10%]"
+            src="/images/case11.jpg"
+            className="h-full w-full rounded-2xl object-cover object-[10%_20%]"
           />
         </div>
-        <div className="h-[150px] w-[450px] rounded-2xl bg-white">
+        <div className="h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
           <img
-            src="/images/case1.png"
-            className="h-full w-full rounded-2xl object-cover object-[50%_10%]"
+            src="/images/case22.jpg"
+            className="h-full w-full rounded-2xl object-cover object-[50%_20%]"
           />
         </div>
       </div>
