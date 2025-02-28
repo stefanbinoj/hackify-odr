@@ -19,10 +19,10 @@ export function CallToAction() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild className="text-md">
-              <Link href="#">Start now</Link>
+              <Link href="/login">Individuals</Link>
             </Button>
             <Button asChild className="text-md" variant="secondary">
-              <Link href="#">Terms & Condition.</Link>
+              <Link href="/login">Organizations</Link>
             </Button>
           </div>
         </div>
