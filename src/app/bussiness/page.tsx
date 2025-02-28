@@ -1,20 +1,10 @@
 "use client"
-
-import { useEffect, useState } from "react"
-import Default from "./components/default"
-import History from "./components/history"
+import * as Avatar from "@radix-ui/react-avatar"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import { useState } from "react"
 
 const Sidebar = () => {
   const [selected, setSelected] = useState("Overview")
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true) // This will be true on the client side
-  }, [])
-
-  if (!isClient) {
-    return <div>Loading...</div> // Instead of returning null, show a placeholder.
-  }
 
   const navigation = [
     {
@@ -36,7 +26,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <Default />, // Component for Overview
+      component: <div> Overview 1</div>,
     },
     {
       href: "javascript:void(0)",
@@ -57,7 +47,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <History />, // Component for Integration
+      component: <div> Overview 2</div>,
     },
     {
       href: "javascript:void(0)",
@@ -78,7 +68,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div>Plans Content</div>, // Component for Plans
+      component: <div> Overview 3</div>,
     },
     {
       href: "javascript:void(0)",
@@ -99,7 +89,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div>Transactions Content</div>, // Component for Transactions
+      component: <div> Overview 4</div>,
     },
   ]
 
@@ -177,31 +167,31 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="flex h-full">
-      <nav className="fixed top-0 left-0 h-full w-full space-y-8 border-r bg-white sm:w-80">
+    <div className="">
+      <nav className="fixed top-0 left-0 h-full w-20 space-y-8 border-r bg-white">
         <div className="flex h-full flex-col">
-          <div className="flex h-20 items-center px-8">
+          <div className="flex h-20 items-center justify-center px-8">
             <a href="javascript:void(0)" className="flex-none">
               <img
-                src="https://floatui.com/logo.svg"
-                width={140}
+                src="https://floatui.com/logo-letter.png"
+                width={35}
                 className="mx-auto"
               />
             </a>
           </div>
-          <div className="flex h-full flex-1 flex-col overflow-auto">
+          <div className="flex h-full flex-1 flex-col">
             <ul className="flex-1 px-4 text-sm font-medium">
               {navigation.map((item, idx) => (
                 <li key={idx}>
                   <a
+                    onClick={() => setSelected(item.name)}
                     href={item.href}
-                    className="flex items-center gap-x-2 rounded-lg p-2 text-gray-600 duration-150 hover:bg-gray-50 active:bg-gray-100"
-                    onClick={() => {
-                      setSelected(item.name)
-                    }}
+                    className="group relative flex items-center justify-center gap-x-2 rounded-lg p-2 text-gray-600 duration-150 hover:bg-gray-50 active:bg-gray-100"
                   >
                     <div className="text-gray-500">{item.icon}</div>
-                    {item.name}
+                    <span className="absolute left-14 hidden rounded-md bg-gray-800 p-1 px-1.5 text-xs whitespace-nowrap text-white duration-150 group-hover:inline-block group-focus:hidden">
+                      {item.name}
+                    </span>
                   </a>
                 </li>
               ))}
@@ -212,32 +202,76 @@ const Sidebar = () => {
                   <li key={idx}>
                     <a
                       href={item.href}
-                      className="flex items-center gap-x-2 rounded-lg p-2 text-gray-600 duration-150 hover:bg-gray-50 active:bg-gray-100"
+                      className="group relative flex items-center justify-center gap-x-2 rounded-lg p-2 text-gray-600 duration-150 hover:bg-gray-50 active:bg-gray-100"
                     >
                       <div className="text-gray-500">{item.icon}</div>
-                      {item.name}
+                      <span className="absolute left-14 hidden rounded-md bg-gray-800 p-1 px-1.5 text-xs whitespace-nowrap text-white duration-150 group-hover:inline-block group-focus:hidden">
+                        {item.name}
+                      </span>
                     </a>
                   </li>
                 ))}
               </ul>
-              <div className="border-t px-4 py-4">
-                <div className="flex items-center gap-x-4">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/79.jpg"
-                    className="h-12 w-12 rounded-full"
-                  />
-                  <div>
-                    <span className="block text-sm font-semibold text-gray-700">
-                      Alivika tony
-                    </span>
-                    <a
-                      href="javascript:void(0)"
-                      className="mt-px block text-xs text-gray-600 hover:text-indigo-600"
-                    >
-                      View profile
-                    </a>
-                  </div>
-                </div>
+              <div className="relative border-t px-4 py-4">
+                <DropdownMenu.Root>
+                  <DropdownMenu.Trigger className="outline-none">
+                    <Avatar.Root>
+                      <Avatar.Image
+                        className="flex h-12 w-12 cursor-pointer items-center gap-x-4 rounded-full ring-gray-800 ring-offset-2 duration-150 focus:ring-2"
+                        src="https://randomuser.me/api/portraits/women/79.jpg"
+                        alt="vienna"
+                      />
+                      <Avatar.Fallback
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-teal-400 to-blue-500 text-sm font-medium text-white"
+                        delayMs={600}
+                      >
+                        VI
+                      </Avatar.Fallback>
+                    </Avatar.Root>
+                  </DropdownMenu.Trigger>
+
+                  <DropdownMenu.Portal>
+                    <DropdownMenu.Content className="absolute bottom-4 left-10 w-64 rounded-lg border bg-white p-2 text-sm text-gray-600 shadow-md">
+                      <span className="block p-2 text-gray-500/80">
+                        vienna@gmail.com
+                      </span>
+                      <DropdownMenu.Item asChild className="outline-none">
+                        <a
+                          href="/dashboard"
+                          className="block w-full rounded-md p-2 text-left duration-150 hover:bg-gray-50 active:bg-gray-100"
+                        >
+                          Dashboard
+                        </a>
+                      </DropdownMenu.Item>
+                      <div className="relative rounded-md duration-150 hover:bg-gray-50 active:bg-gray-100">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          className="pointer-events-none absolute inset-y-0 right-1 my-auto h-4 w-4"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <select className="w-full cursor-pointer appearance-none bg-transparent p-2 outline-none">
+                          <option disabled selected>
+                            Theme
+                          </option>
+                          <option>Dark</option>
+                          <option>Light</option>
+                        </select>
+                      </div>
+                      <DropdownMenu.Item asChild className="outline-none">
+                        <button className="block w-full rounded-md p-2 text-left duration-150 hover:bg-gray-50 active:bg-gray-100">
+                          Logout
+                        </button>
+                      </DropdownMenu.Item>
+                    </DropdownMenu.Content>
+                  </DropdownMenu.Portal>
+                </DropdownMenu.Root>
               </div>
             </div>
           </div>

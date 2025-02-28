@@ -1,5 +1,5 @@
-const Page = () => {
-  return <div className="min-h-screen bg-red-500">page</div>
+const AdminPage = () => {
+  return <div>AdminPage</div>
 }
 
-export default Page
+export default AdminPage
