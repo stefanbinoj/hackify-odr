@@ -87,7 +87,7 @@ export default function Home() {
         </div>
 
         {/* Book Now Button */}
-        <div className="fixed right-8 bottom-8 rounded-4xl">
+        <div className="fixed right-8 bottom-8 z-20 rounded-4xl">
           <Link
             href="/book-appointment"
             className="flex items-center rounded-4xl bg-orange-400 px-6 py-3 text-white shadow-lg transition-colors hover:bg-orange-500"
@@ -99,16 +99,25 @@ export default function Home() {
       </div>
       <h1 className="mb-5 ml-3 text-2xl">Case Stories</h1>
       <div className="ml-[-70px] flex justify-center gap-10">
-        <div className="h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
+        <div className="relative h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
+          <h1 className="absolute top-5 right-5 font-mono text-xl">
+            <strong>KARTHIK</strong> vs <strong>ICCI </strong>
+          </h1>
+          {/* <p className="absolute right-5 bottom-0 flex text-sm text-blue-400">
+            View More <FaArrowRightLong />
+          </p> */}
           <img
             src="/images/case11.jpg"
-            className="h-full w-full rounded-2xl object-cover object-[10%_20%]"
+            className="h-full w-3/4 rounded-2xl object-cover object-[10%_20%]"
           />
         </div>
-        <div className="h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
+        <div className="relative h-[150px] w-[450px] rounded-2xl bg-white shadow-md">
+          <h1 className="absolute top-5 right-5 font-mono text-xl">
+            <strong>AYUSH</strong> vs <strong>TCS </strong>
+          </h1>
           <img
             src="/images/case22.jpg"
-            className="h-full w-full rounded-2xl object-cover object-[50%_20%]"
+            className="h-full w-3/4 rounded-2xl object-cover object-[50%_20%]"
           />
         </div>
       </div>
