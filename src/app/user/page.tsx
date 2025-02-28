@@ -6,6 +6,7 @@ import { MdOutlineMailOutline } from "react-icons/md"
 
 import AIChat from "./components/askAI"
 import Default from "./components/home"
+import Inbox from "./components/inbox"
 import History from "./components/status"
 
 const Sidebar = () => {
@@ -67,7 +68,7 @@ const Sidebar = () => {
       href: "javascript:void(0)",
       name: "Inbox",
       icon: <MdOutlineMailOutline size={20} />,
-      component: <div>Plans Content</div>, // Component for Plans
+      component: <Inbox />, // Component for Plans
     },
     {
       href: "javascript:void(0)",

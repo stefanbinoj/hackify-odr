@@ -1,28 +1,37 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import { NextResponse } from 'next/server';
+import { Groq } from "groq-sdk" // Groq SDK import
+import { NextResponse } from "next/server"
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY! }) // Initialize Groq SDK
 
 export async function POST(request: Request) {
-    try {
-        const { messages, initialPrompt } = await request.json();
+  try {
+    const { messages, initialPrompt } = await request.json()
 
-        const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    // Initialize Groq's chat completion model
+    const model = groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: initialPrompt || "Hello, how can I assist you?",
+        },
+        ...messages,
+      ],
+      model: "llama-3.3-70b-versatile", // Groq's model name (you can change this)
+    })
 
-        const prompt = `${initialPrompt}\n\n${messages
-            .map((msg: any) => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
-            .join('\n')}`;
+    // Request chat completion from Groq API
+    const chatCompletion = await model
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
+    // Get the response text from Groq API
+    const responseText =
+      chatCompletion.choices[0]?.message?.content || "No response from AI"
 
-        return NextResponse.json({ response: text });
-    } catch (error) {
-        console.error('Error:', error);
-        return NextResponse.json(
-            { error: 'Failed to process request' },
-            { status: 500 }
-        );
-    }
-} 
+    return NextResponse.json({ response: responseText })
+  } catch (error) {
+    console.error("Error:", error)
+    return NextResponse.json(
+      { error: "Failed to process request" },
+      { status: 500 },
+    )
+  }
+}
