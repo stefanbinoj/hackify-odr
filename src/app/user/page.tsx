@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Default from "./components/default"
+import History from "./components/history"
 
 const Sidebar = () => {
   const [selected, setSelected] = useState("Overview")
@@ -34,7 +36,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div>Overview Content</div>, // Component for Overview
+      component: <Default />, // Component for Overview
     },
     {
       href: "javascript:void(0)",
@@ -55,7 +57,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div>Integration Content</div>, // Component for Integration
+      component: <History />, // Component for Integration
     },
     {
       href: "javascript:void(0)",

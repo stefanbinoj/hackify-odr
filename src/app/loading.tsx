@@ -1,5 +1,9 @@
 const loading = () => {
-  return <div>loading..</div>
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-red-500">
+      loading...
+    </div>
+  )
 }
 
 export default loading
