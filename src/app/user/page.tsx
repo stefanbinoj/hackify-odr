@@ -1,5 +1,19 @@
 "use client"
+
+import { useEffect, useState } from "react"
+
 const Sidebar = () => {
+  const [selected, setSelected] = useState("Overview")
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true) // This will be true on the client side
+  }, [])
+
+  if (!isClient) {
+    return <div>Loading...</div> // Instead of returning null, show a placeholder.
+  }
+
   const navigation = [
     {
       href: "javascript:void(0)",
@@ -20,6 +34,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
+      component: <div>Overview Content</div>, // Component for Overview
     },
     {
       href: "javascript:void(0)",
@@ -40,6 +55,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
+      component: <div>Integration Content</div>, // Component for Integration
     },
     {
       href: "javascript:void(0)",
@@ -60,6 +76,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
+      component: <div>Plans Content</div>, // Component for Plans
     },
     {
       href: "javascript:void(0)",
@@ -80,6 +97,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
+      component: <div>Transactions Content</div>, // Component for Transactions
     },
   ]
 
@@ -151,8 +169,13 @@ const Sidebar = () => {
     },
   ]
 
+  const renderComponent = () => {
+    const selectedItem = navigation.find((item) => item.name === selected)
+    return selectedItem ? selectedItem.component : <div>Select a component</div>
+  }
+
   return (
-    <>
+    <div className="flex h-full">
       <nav className="fixed top-0 left-0 h-full w-full space-y-8 border-r bg-white sm:w-80">
         <div className="flex h-full flex-col">
           <div className="flex h-20 items-center px-8">
@@ -171,6 +194,10 @@ const Sidebar = () => {
                   <a
                     href={item.href}
                     className="flex items-center gap-x-2 rounded-lg p-2 text-gray-600 duration-150 hover:bg-gray-50 active:bg-gray-100"
+                    onClick={() => {
+                      console.log(item)
+                      setSelected(item.name)
+                    }}
                   >
                     <div className="text-gray-500">{item.icon}</div>
                     {item.name}
@@ -215,7 +242,11 @@ const Sidebar = () => {
           </div>
         </div>
       </nav>
-    </>
+      <div className="ml-64 w-full p-8">
+        {/* Display the component based on the selected item */}
+        {renderComponent()}
+      </div>
+    </div>
   )
 }
 
