@@ -4,8 +4,9 @@ import { useEffect, useState } from "react"
 import { IoIosInfinite } from "react-icons/io"
 import { MdOutlineMailOutline } from "react-icons/md"
 
-import Default from "./components/default"
-import History from "./components/history"
+import AIChat from "./components/askAI"
+import Default from "./components/home"
+import History from "./components/status"
 
 const Sidebar = () => {
   const [selected, setSelected] = useState("Home")
@@ -72,7 +73,7 @@ const Sidebar = () => {
       href: "javascript:void(0)",
       name: "Ask AI",
       icon: <IoIosInfinite size={20} />,
-      component: <div>Transactions Content</div>, // Component for Transactions
+      component: <AIChat />,
     },
   ]
 
@@ -157,6 +158,7 @@ const Sidebar = () => {
             <a href="javascript:void(0)" className="flex-none">
               <img src="/images/logo.png" width={40} className="mx-auto" />
             </a>
+            <h1 className="text-bold ml-4 text-2xl text-orange-500">RESOLV</h1>
           </div>
           <div className="flex h-full flex-1 flex-col overflow-auto">
             <ul className="flex-1 px-4 text-sm font-medium">
