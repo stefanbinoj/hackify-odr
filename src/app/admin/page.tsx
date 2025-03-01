@@ -13,7 +13,7 @@ const Sidebar = () => {
   const navigation = [
     {
       href: "javascript:void(0)",
-      name: "Overview",
+      name: "Dashboard",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const Sidebar = () => {
     },
     {
       href: "javascript:void(0)",
-      name: "Integration",
+      name: "User Data",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Sidebar = () => {
     },
     {
       href: "javascript:void(0)",
-      name: "Plans",
+      name: "Dispute Data",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

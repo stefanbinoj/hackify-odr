@@ -15,7 +15,7 @@ const Sidebar = () => {
   const navigation = [
     {
       href: "javascript:void(0)",
-      name: "Overview",
+      name: "Dashboard",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const Sidebar = () => {
     },
     {
       href: "javascript:void(0)",
-      name: "Integration",
+      name: "Disputes",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,13 +57,13 @@ const Sidebar = () => {
     },
     {
       href: "javascript:void(0)",
-      name: "Plans",
+      name: "Inbox",
       icon: <MdOutlineMailOutline size={20} />,
       component: <Component2 />,
     },
     {
       href: "javascript:void(0)",
-      name: "Transactions",
+      name: "Support AI",
       icon: <IoIosInfinite size={25} />,
       component: <Component3 />,
     },

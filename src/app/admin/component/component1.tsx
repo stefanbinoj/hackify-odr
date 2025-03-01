@@ -98,7 +98,7 @@ const Component1 = () => {
   ]
 
   return (
-    <div className="flex gap-8 ml-[-180px]">
+    <div className="ml-[-180px] flex gap-8">
       <div className="flex flex-col">
         <div className="grid grid-cols-2 gap-8">
           {stats.map((stat, idx) => (
@@ -116,7 +116,7 @@ const Component1 = () => {
             </div>
           ))}
         </div>
-        <div className="mt-8">
+        <div className="mt-8 ml-10">
           <Component />
         </div>
       </div>
@@ -139,7 +139,13 @@ const Component1 = () => {
               >
                 <TableCell className="font-medium">{user.id}</TableCell>
                 <TableCell>{user.name}</TableCell>
-                <TableCell className={user.role === "Mediator" ? "text-indigo-600" : "text-purple-600"}>
+                <TableCell
+                  className={
+                    user.role === "Mediator"
+                      ? "text-indigo-600"
+                      : "text-purple-600"
+                  }
+                >
                   {user.role}
                 </TableCell>
               </TableRow>
