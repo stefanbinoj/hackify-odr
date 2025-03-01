@@ -1,14 +1,9 @@
 import {
-  RiCarFill,
-  RiCheckLine,
-  RiCircleLine,
   RiCodepenLine,
   RiContrast2Line,
   RiFullscreenFill,
-  RiLoaderFill,
   RiNotification2Line,
   RiPlaneFill,
-  RiTruckFill,
 } from "@remixicon/react"
 import { SolarMark } from "../../../public/SolarMark"
 import { Icons } from "../Icons"
@@ -187,16 +182,19 @@ export default function Features() {
                     key="obj1"
                     className="relative flex items-center justify-center"
                   >
-                    <RiTruckFill className="z-10 size-5 text-gray-900" />
+                    <img
+                      src="/images/1.png"
+                      className="z-10 size-5 text-gray-900"
+                    />
                     <div className="absolute size-10 rounded-full bg-white/50 ring-1 shadow-lg ring-black/5"></div>
                     <div className="absolute -top-5 left-4">
                       <div className="flex gap-1">
-                        <div className="flex items-center justify-center rounded-l-full bg-red-500 p-1 text-xs ring-1 ring-gray-200">
+                        {/* <div className="flex items-center justify-center rounded-l-full bg-red-500 p-1 text-xs ring-1 ring-gray-200">
                           <RiCircleLine className="size-3 shrink-0 text-white" />
                         </div>
                         <div className="rounded-r-full bg-white/50 py-0.5 pr-1.5 pl-1 text-xs whitespace-nowrap ring-1 ring-gray-200">
                           Drivetrain Error
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div
@@ -211,18 +209,12 @@ export default function Features() {
                     key="obj2"
                     className="relative flex items-center justify-center"
                   >
-                    <RiPlaneFill className="z-10 size-5 rotate-90 text-gray-900" />
+                    <img
+                      src="/images/2.png"
+                      className="z-10 size-5 rotate-90 text-gray-900"
+                    />
                     <div className="absolute size-10 rounded-full bg-white/50 ring-1 shadow-lg ring-black/5"></div>
-                    <div className="absolute -top-5 left-4">
-                      <div className="flex gap-1">
-                        <div className="flex items-center justify-center rounded-l-full bg-gray-500 p-1 text-xs ring-1 ring-gray-200">
-                          <RiLoaderFill className="size-3 shrink-0 animate-spin text-white" />
-                        </div>
-                        <div className="rounded-r-full bg-white/50 py-0.5 pr-1.5 pl-1 text-xs ring-1 ring-gray-200">
-                          Charging
-                        </div>
-                      </div>
-                    </div>
+
                     <div
                       style={{
                         animationDelay: "4s",
@@ -235,7 +227,10 @@ export default function Features() {
                     key="obj3"
                     className="relative flex items-center justify-center"
                   >
-                    <RiCarFill className="z-10 size-5 text-gray-900" />
+                    <img
+                      src="/images/3.png"
+                      className="z-10 size-5 text-gray-900"
+                    />
                     <div className="absolute size-10 rounded-full bg-white/50 ring-1 shadow-lg ring-black/5"></div>
                     <div
                       style={{
@@ -250,16 +245,6 @@ export default function Features() {
                   >
                     <Icons.QuadCopter className="z-10 size-5 rotate-90 text-gray-900" />
                     <div className="absolute size-10 rounded-full bg-white/50 ring-1 shadow-lg ring-black/5"></div>
-                    <div className="absolute -top-5 left-4">
-                      <div className="flex gap-1">
-                        <div className="flex items-center justify-center rounded-l-full bg-emerald-500 p-1 text-xs ring-1 ring-gray-200">
-                          <RiCheckLine className="size-3 shrink-0 text-white" />
-                        </div>
-                        <div className="rounded-r-full bg-white/50 py-0.5 pr-1.5 pl-1 text-xs ring-1 ring-gray-200">
-                          Farming
-                        </div>
-                      </div>
-                    </div>
 
                     <div
                       style={{
@@ -358,7 +343,7 @@ export default function Features() {
                   <SolarMark className="h-8 w-8" />
                 </div>
               </div>
-              <div className="absolute top-[144px] left-[48px]">
+              {/* <div className="absolute top-[144px] left-[48px]">
                 <div className="relative">
                   <div className="absolute inset-0 size-12 animate-pulse bg-orange-200 blur-[3px]"></div>
                   <div className="relative flex h-12 w-12 items-center justify-center bg-white ring-1 shadow-sm ring-black/15">
@@ -367,9 +352,9 @@ export default function Features() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="absolute top-[48px] left-[144px]">
+              {/* <div className="absolute top-[48px] left-[144px]">
                 <div className="relative">
                   <div className="absolute inset-0 size-12 animate-pulse bg-orange-200 blur-[3px]"></div>
                   <div className="relative flex h-12 w-12 items-center justify-center bg-white ring-1 shadow-sm ring-black/15">
@@ -378,9 +363,9 @@ export default function Features() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="absolute top-[96px] left-[240px]">
+              {/* <div className="absolute top-[96px] left-[240px]">
                 <div className="relative">
                   <div className="absolute inset-0 size-12 animate-pulse bg-orange-200 blur-[3px]"></div>
                   <div className="relative flex h-12 w-12 items-center justify-center bg-white ring-1 shadow-sm ring-black/15">
@@ -411,9 +396,9 @@ export default function Features() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="absolute top-[288px] left-[144px]">
+              {/* <div className="absolute top-[288px] left-[144px]">
                 <div className="relative">
                   <div className="absolute inset-0 size-12 animate-pulse bg-orange-200 blur-[3px]"></div>
                   <div className="relative flex h-12 w-12 items-center justify-center bg-white ring-1 shadow-sm ring-black/15">
@@ -422,7 +407,7 @@ export default function Features() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
