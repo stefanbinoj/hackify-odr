@@ -211,7 +211,7 @@ export default function Features() {
                   >
                     <img
                       src="/images/2.png"
-                      className="z-10 size-5 rotate-90 text-gray-900"
+                      className="z-10 size-5 rotate-0 text-gray-900"
                     />
                     <div className="absolute size-10 rounded-full bg-white/50 ring-1 shadow-lg ring-black/5"></div>
 

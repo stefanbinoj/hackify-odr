@@ -8,7 +8,7 @@ import Component3 from "./component/component3"
 import Dashboard from "./component/dashboard"
 
 const Sidebar = () => {
-  const [selected, setSelected] = useState("Overview")
+  const [selected, setSelected] = useState("Dashboard")
 
   const navigation = [
     {

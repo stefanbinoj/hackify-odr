@@ -16,7 +16,7 @@ const Component1 = () => {
   const stats = [
     {
       title: "Mediators",
-      value: "450",
+      value: "2450",
       change: "+12.5%",
       color: "bg-indigo-50",
       textColor: "text-indigo-600",
@@ -30,7 +30,7 @@ const Component1 = () => {
     },
     {
       title: "Unapproved Mediators",
-      value: "2300",
+      value: "230",
       change: "+5.4%",
       color: "bg-amber-50",
       textColor: "text-amber-600",
