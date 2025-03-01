@@ -58,13 +58,13 @@ const Sidebar = () => {
     {
       href: "javascript:void(0)",
       name: "Plans",
-      icon: <MdOutlineMailOutline />,
+      icon: <MdOutlineMailOutline size={20} />,
       component: <Component2 />,
     },
     {
       href: "javascript:void(0)",
       name: "Transactions",
-      icon: <IoIosInfinite />,
+      icon: <IoIosInfinite size={25} />,
       component: <Component3 />,
     },
   ]
@@ -190,7 +190,7 @@ const Sidebar = () => {
                     <Avatar.Root>
                       <Avatar.Image
                         className="flex h-12 w-12 cursor-pointer items-center gap-x-4 rounded-full ring-gray-800 ring-offset-2 duration-150 focus:ring-2"
-                        src="/images/kfc1.png"
+                        src="/images/kalki.png"
                         alt="vienna"
                       />
                       <Avatar.Fallback

@@ -5,7 +5,12 @@ export function ToggleGroupDemo() {
   const [active, setActive] = useState<string>("bold")
 
   return (
-    <ToggleGroup type="single" value={active} onValueChange={setActive}>
+    <ToggleGroup
+      className="rounded-2xl shadow-xl"
+      type="single"
+      value={active}
+      onValueChange={setActive}
+    >
       <ToggleGroupItem value="bold" aria-label="Toggle bold">
         <h1
           className={`h-8 w-24 border-b-2 ${
