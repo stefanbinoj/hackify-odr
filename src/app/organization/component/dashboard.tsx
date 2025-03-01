@@ -1,4 +1,4 @@
-import { ArrowUpRight, Plus } from "lucide-react"
+import { ArrowUpRight, Plus, Search } from "lucide-react"
 import { Chart2 } from "./components/chart2"
 
 const Dashboard = () => {
@@ -18,18 +18,19 @@ const Dashboard = () => {
       textColor: "text-green-600",
     },
     {
+      title: "Track Cases",
+      value: "Track\nDisputes",
+      icon: <Search className="h-12 w-12" />,
+      color: "bg-indigo-50",
+      textColor: "text-indigo-600",
+      isAction: true,
+    },
+    {
       title: "Disputes for Approval",
       value: "2300",
       change: "+5.4%",
       color: "bg-orange-50",
       textColor: "text-orange-600",
-    },
-    {
-      title: "Unapproved Disputes",
-      value: "120",
-      change: "-3.2%",
-      color: "bg-red-50",
-      textColor: "text-red-600",
     },
     {
       title: "Total Settlement",
@@ -39,9 +40,9 @@ const Dashboard = () => {
       textColor: "text-purple-600",
     },
     {
-      title: "Upload File",
-      value: "Click to Upload",
-      icon: <Plus className="h-6 w-6" />,
+      title: "File Cases",
+      value: "Upload\nFile",
+      icon: <Plus className="h-12 w-12" />,
       color: "bg-teal-50",
       textColor: "text-teal-600",
       isUpload: true,
@@ -60,22 +61,25 @@ const Dashboard = () => {
             >
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold tracking-wide">{stat.title}</p>
-                {stat.icon ? (
-                  <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
-                    {stat.icon}
-                  </div>
-                ) : (
-                  <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
-                )}
+                <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
               </div>
               <div className="mt-2">
-                <p className="text-3xl font-bold tracking-tight">{stat.value}</p>
-                {!stat.isUpload && (
-                  <p className={`mt-2 text-sm font-medium ${stat.textColor}`}>
-                    {stat.change} from last month
-                  </p>
+                {stat.isAction || stat.isUpload ? (
+                  <div className="flex items-center gap-4 cursor-pointer">
+                    <div className={`${stat.textColor} bg-white p-3 rounded-lg shadow-sm`}>
+                      {stat.icon}
+                    </div>
+                    <span className="text-xl font-medium text-gray-600 whitespace-pre-line leading-tight">{stat.value}</span>
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-3xl font-bold tracking-tight">{stat.value}</p>
+                    <p className={`mt-2 text-sm font-medium ${stat.textColor}`}>
+                      {stat.change} from last month
+                    </p>
+                  </>
                 )}
               </div>
             </div>
