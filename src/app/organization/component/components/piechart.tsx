@@ -12,11 +12,11 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
+  { browser: "chrome", visitors: 450, fill: "var(--color-chrome)" },
+  { browser: "safari", visitors: 1260, fill: "var(--color-safari)" },
+  { browser: "firefox", visitors: 2300, fill: "var(--color-firefox)" },
+  // { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
+  { browser: "other", visitors: 10, fill: "var(--color-other)" },
 ]
 
 const chartConfig = {
@@ -24,25 +24,26 @@ const chartConfig = {
     label: "Visitors",
   },
   chrome: {
-    label: "Chrome",
-    color: "#3f83ba",
+    label: "Active",
+    color: "#59a9fc",  // Brighter blue
   },
   safari: {
-    label: "Safari",
-    color: "#46b864",
+    label: "Resolved",
+    color: "#72e88b",  // Brighter green
   },
   firefox: {
-    label: "Firefox",
-    color: "#c29734",
+    label: "Waiting approval",
+    color: "#ff8a55",  // Brighter orange
   },
-  edge: {
-    label: "Edge",
-    color: "#ad34c2",
-  },
+  // edge: {
+  //   label: "Edge",
+  //   color: "#d48eff",  // Brighter purple
+  // },
   other: {
     label: "Other",
-    color: "#cc4385",
+    color: "#a3b2c4",  // Brighter grey
   },
+
 } satisfies ChartConfig
 
 export function Component() {
