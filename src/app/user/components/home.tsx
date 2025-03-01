@@ -1,9 +1,9 @@
 "use client"
 import { ArrowRight, Scale, Users } from "lucide-react"
-import Link from "next/link"
 import { useState } from "react"
 import { FaPlus } from "react-icons/fa"
 import ArbitrationModal from "./ArbitrationModal"
+import BookAppointmentModal from "./BookAppointmentModal"
 import MediationModal from "./MediationModal"
 import TrackCasesModal from "./TrackCasesModal"
 
@@ -11,6 +11,7 @@ export default function Home() {
   const [showMediationModal, setShowMediationModal] = useState(false)
   const [showArbitrationModal, setShowArbitrationModal] = useState(false)
   const [showTrackCasesModal, setShowTrackCasesModal] = useState(false)
+  const [showBookAppointmentModal, setShowBookAppointmentModal] = useState(false)
 
   return (
     <>
@@ -96,13 +97,13 @@ export default function Home() {
 
           {/* Book Now Button */}
           <div className="fixed right-8 bottom-8 z-20 rounded-4xl">
-            <Link
-              href="/book-appointment"
+            <button
+              onClick={() => setShowBookAppointmentModal(true)}
               className="flex items-center rounded-4xl bg-orange-400 px-6 py-3 text-white shadow-lg transition-colors hover:bg-orange-500"
             >
               <FaPlus size={20} />
               <span className="ml-3 font-medium">File Case</span>
-            </Link>
+            </button>
           </div>
         </div>
         <h1 className="mb-5 ml-3 text-2xl">Case Stories</h1>
@@ -143,6 +144,10 @@ export default function Home() {
       <TrackCasesModal
         isOpen={showTrackCasesModal}
         onClose={() => setShowTrackCasesModal(false)}
+      />
+      <BookAppointmentModal
+        isOpen={showBookAppointmentModal}
+        onClose={() => setShowBookAppointmentModal(false)}
       />
     </>
   )
