@@ -12,18 +12,19 @@ interface ChatMessage {
 
 // Developer can set the initial prompt here
 const INITIAL_PROMPT =
-  "Hello Karthik, this is Amal, your mediator. Regarding your Diskna dispute with your neighbor, the last mediation session did not yield a resolution, but the next hearing is scheduled for March 5, 2025. The mediator will conduct a property boundary survey to clear any misunderstandings, and it’s crucial that you bring all property documents, such as land titles and previous communication with your neighbor. As for your bank loan dispute, the bank has reviewed your application but is waiting for your revised payment proposal for the restructuring request. You should prepare to meet with the bank representatives on March 10, 2025, to discuss possible adjustments. A clear outline of your finances and repayment plan will be essential to ensure progress. If you need help preparing for either session, I’m here to support you with the necessary documentation or advice."
+  "As a business managing a significant volume of ongoing disputes, including supplier delays, employee contract issues, and financial negotiations, it is crucial to resolve these conflicts efficiently without impacting the company's reputation. The upcoming mediation sessions include addressing a supplier delay affecting inventory, scheduled for March 5, 2025, where important documents such as purchase agreements and correspondence should be reviewed. Additionally, a contract dispute concerning non-compete clauses with an employee is set for March 7, 2025, for which the signed agreements and relevant communication need to be prepared. Lastly, a meeting with the bank representatives to finalize the loan restructuring proposal is scheduled for March 10, 2025, where a revised repayment plan, financial projections, and timelines will be discussed. It is essential to approach each case with clarity and preparedness to ensure swift resolutions and minimize any negative impacts on operations or reputation. Assistance with documentation and strategy preparation for these sessions is available as needed."
 
 export default function AskAI() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "user",
-      content: "Hi, can you help me with the update on my Diskna case?",
+      content:
+        "Hi, can you help me with updates on the ongoing supplier dispute and the loan restructuring case?",
     },
     {
       role: "assistant",
       content:
-        "Sure, Karthik. The next hearing for the Diskna case is scheduled for March 5, 2025. The mediator will conduct a property boundary survey. Make sure you bring all the relevant documents.",
+        "Certainly. Regarding the supplier delay, the next mediation session is scheduled for March 5, 2025. The mediator will review the purchase agreements and communication between your business and the supplier. Please ensure all relevant documentation is prepared. As for the loan restructuring, a meeting with the bank representatives is scheduled for March 10, 2025, where the revised repayment plan and financial projections will be discussed. It’s important to have the latest financial records and any communications with the bank ready for the meeting.",
     },
   ])
   const [input, setInput] = useState("")
@@ -62,7 +63,7 @@ export default function AskAI() {
   }
 
   return (
-    <div className="container mx-auto max-w-4xl p-4">
+    <div className="container ml-[-200px] w-full p-4">
       <div className="space-y-6">
         <ScrollArea className="h-[500px] rounded-lg border p-4">
           {messages.map((message, index) => (

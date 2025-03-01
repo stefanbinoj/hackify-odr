@@ -2,6 +2,10 @@
 import * as Avatar from "@radix-ui/react-avatar"
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { useState } from "react"
+import Component1 from "./component/component1"
+import Component2 from "./component/component2"
+import Component3 from "./component/component3"
+import Dashboard from "./component/dashboard"
 
 const Sidebar = () => {
   const [selected, setSelected] = useState("Overview")
@@ -26,7 +30,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div> Overview 1</div>,
+      component: <Dashboard />,
     },
     {
       href: "javascript:void(0)",
@@ -47,7 +51,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div> Overview 2</div>,
+      component: <Component1 />,
     },
     {
       href: "javascript:void(0)",
@@ -68,7 +72,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div> Overview 3</div>,
+      component: <Component2 />,
     },
     {
       href: "javascript:void(0)",
@@ -89,7 +93,7 @@ const Sidebar = () => {
           />
         </svg>
       ),
-      component: <div> Overview 4</div>,
+      component: <Component3 />,
     },
   ]
 
