@@ -291,13 +291,10 @@ function HorizontalTimeline({
 }
 
 const History = () => {
-  const [row, setRow] = useState<any>(CASoices[0])
+  const [row, setRow] = useState<any>(null)
 
   return (
     <div className="ml-10 min-h-screen flex-col items-center justify-center">
-      {/* <div className="mb-10 ml-50 w-fit self-center rounded-2xl px-5 pt-5 shadow-lg">
-        <ToggleGroupDemo />
-      </div> */}
       <Table className="ml-2 border-2">
         <TableHeader>
           <TableRow>
@@ -311,13 +308,12 @@ const History = () => {
         <TableBody>
           {CASoices.map((CASoice) => (
             <TableRow
-              className={`${row.CASEID === CASoice.CASEID ? "bg-blue-300" : ""}`}
+              className={`cursor-pointer ${row?.CASEID === CASoice.CASEID ? "bg-blue-300" : ""}`}
               key={CASoice.CASEID}
+              onClick={() => setRow(CASoice)}
             >
               <TableCell className="font-medium">{CASoice.CASEID}</TableCell>
-              <TableCell className="font-medium">
-                {CASoice.PETITIONER}
-              </TableCell>
+              <TableCell className="font-medium">{CASoice.PETITIONER}</TableCell>
               <TableCell>{CASoice.MEDIATOR}</TableCell>
               <TableCell>{CASoice.RESPONDENT}</TableCell>
               <TableCell>
@@ -326,91 +322,94 @@ const History = () => {
                 ) : CASoice.STATUS == "CLOSED" ? (
                   <p className="text-gray-400">Closed</p>
                 ) : (
-                  <p className="text-green-500">Ongoing`</p>
+                  <p className="text-green-500">Ongoing</p>
                 )}
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <div className="flex">
-        <div className="mt-8 ml-5 h-[800px] w-[570px] shadow-md">
-          <div className="mx-auto mt-4 w-full max-w-4xl px-4">
-            <h2 className="mb-4 text-xl font-semibold">Case Duration</h2>
-            <HorizontalTimeline totalDays={30} currentDay={20} />
+
+      {row && (
+        <div className="flex">
+          <div className="mt-8 ml-5 h-[800px] w-[570px] shadow-md">
+            <div className="mx-auto mt-4 w-full max-w-4xl px-4">
+              <h2 className="mb-4 text-xl font-semibold">Case Duration</h2>
+              <HorizontalTimeline totalDays={30} currentDay={20} />
+            </div>
           </div>
-        </div>
-        <div className="mt-8 ml-auto w-[450px] max-w-3xl border-orange-400 px-4 py-8 shadow-lg">
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 transform bg-gray-200"></div>
+          <div className="mt-8 ml-auto w-[450px] max-w-3xl border-orange-400 px-4 py-8 shadow-lg">
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-1/2 h-full w-0.5 -translate-x-1/2 transform bg-gray-200"></div>
 
-            {timelineSteps.map((step, index) => (
-              <div key={step.id} className="relative mb-6 last:mb-0">
-                <div className="flex items-center">
-                  {/* Left content */}
-                  <div
-                    className={cn(
-                      "w-[45%] pr-4",
-                      index % 2 === 0 ? "text-right" : "text-right opacity-0",
-                    )}
-                  >
-                    {index % 2 === 0 && (
-                      <>
-                        <h3 className="text-sm font-semibold">{step.title}</h3>
-                        <p className="text-muted-foreground text-xs">
-                          {step.date}
-                        </p>
-                        <p className="text-muted-foreground text-xs">
-                          {step.description}
-                        </p>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Center point */}
-                  <div className="absolute left-1/2 flex -translate-x-1/2 transform items-center justify-center">
+              {timelineSteps.map((step, index) => (
+                <div key={step.id} className="relative mb-6 last:mb-0">
+                  <div className="flex items-center">
+                    {/* Left content */}
                     <div
                       className={cn(
-                        "z-10 rounded-full border",
-                        step.completed
-                          ? "border-green-500 bg-green-100"
-                          : "border-gray-300 bg-gray-100",
+                        "w-[45%] pr-4",
+                        index % 2 === 0 ? "text-right" : "text-right opacity-0",
                       )}
                     >
-                      {step.completed ? (
-                        <CheckCircle className="h-3 w-3 text-green-500" />
-                      ) : (
-                        <Clock className="h-3 w-3 text-gray-400" />
+                      {index % 2 === 0 && (
+                        <>
+                          <h3 className="text-sm font-semibold">{step.title}</h3>
+                          <p className="text-muted-foreground text-xs">
+                            {step.date}
+                          </p>
+                          <p className="text-muted-foreground text-xs">
+                            {step.description}
+                          </p>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Center point */}
+                    <div className="absolute left-1/2 flex -translate-x-1/2 transform items-center justify-center">
+                      <div
+                        className={cn(
+                          "z-10 rounded-full border",
+                          step.completed
+                            ? "border-green-500 bg-green-100"
+                            : "border-gray-300 bg-gray-100",
+                        )}
+                      >
+                        {step.completed ? (
+                          <CheckCircle className="h-3 w-3 text-green-500" />
+                        ) : (
+                          <Clock className="h-3 w-3 text-gray-400" />
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Right content */}
+                    <div
+                      className={cn(
+                        "w-[45%] pl-12",
+                        index % 2 === 1 ? "text-left" : "text-left opacity-0",
+                      )}
+                    >
+                      {index % 2 === 1 && (
+                        <>
+                          <h3 className="text-sm font-semibold">{step.title}</h3>
+                          <p className="text-muted-foreground text-xs">
+                            {step.date}
+                          </p>
+                          <p className="text-muted-foreground text-xs">
+                            {step.description}
+                          </p>
+                        </>
                       )}
                     </div>
                   </div>
-
-                  {/* Right content */}
-                  <div
-                    className={cn(
-                      "w-[45%] pl-12",
-                      index % 2 === 1 ? "text-left" : "text-left opacity-0",
-                    )}
-                  >
-                    {index % 2 === 1 && (
-                      <>
-                        <h3 className="text-sm font-semibold">{step.title}</h3>
-                        <p className="text-muted-foreground text-xs">
-                          {step.date}
-                        </p>
-                        <p className="text-muted-foreground text-xs">
-                          {step.description}
-                        </p>
-                      </>
-                    )}
-                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
