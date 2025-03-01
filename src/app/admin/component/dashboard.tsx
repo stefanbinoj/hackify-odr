@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react"
+import Chart1 from "./components/chart1"
+import { Chart2 } from "./components/chart2"
 
 const Dashboard = () => {
   const stats = [
@@ -33,34 +35,35 @@ const Dashboard = () => {
   ]
 
   return (
-    <div className="flex gap-6">
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-6">
-        {stats.map((stat, idx) => (
-          <div
-            key={idx}
-            className={`${stat.color} rounded-xl p-6 shadow-sm`}
-          >
-            <div className="flex items-center justify-between">
-              <p className="text-sm font-medium">{stat.title}</p>
-              <ArrowUpRight className={`h-4 w-4 ${stat.textColor}`} />
+    <>
+      <div className="ml-[-180px] flex gap-8">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-8">
+          {stats.map((stat, idx) => (
+            <div key={idx} className={`${stat.color} rounded-xl p-6 shadow-sm`}>
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium">{stat.title}</p>
+                <ArrowUpRight className={`h-4 w-4 ${stat.textColor}`} />
+              </div>
+              <div className="mt-4">
+                <p className="text-3xl font-bold">{stat.value}</p>
+                <p className={`mt-1 text-sm ${stat.textColor}`}>
+                  {stat.change} from last month
+                </p>
+              </div>
             </div>
-            <div className="mt-4">
-              <p className="text-3xl font-bold">{stat.value}</p>
-              <p className={`mt-1 text-sm ${stat.textColor}`}>
-                {stat.change} from last month
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Chart placeholder */}
-      <div className="h-[400px] w-[600px] rounded-xl bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-semibold">Dispute Analytics</h2>
+        {/* Chart placeholder */}
+
         {/* Chart will be added here */}
+        <Chart1 />
       </div>
-    </div>
+      <div className="mt-10 ml-[-180px]">
+        <Chart2 />
+      </div>
+    </>
   )
 }
 
