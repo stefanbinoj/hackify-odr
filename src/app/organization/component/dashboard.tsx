@@ -1,5 +1,6 @@
 import { ArrowUpRight, Plus, Search } from "lucide-react"
 import { Chart2 } from "./components/chart2"
+import { Component } from "./components/piechart"
 
 const Dashboard = () => {
   const stats = [
@@ -53,37 +54,45 @@ const Dashboard = () => {
     <>
       <div className="ml-[-180px]">
         {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-5 w-[800px]">
+        <div className="relative grid w-[850px] grid-cols-3 gap-5">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className={`${stat.color} rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-[260px] h-[160px] flex flex-col justify-between border border-gray-100`}
+              className={`${stat.color} flex h-[160px] w-[260px] flex-col justify-between rounded-2xl border border-gray-100 p-6 shadow-lg transition-shadow duration-200 hover:shadow-xl`}
             >
               <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold tracking-wide">{stat.title}</p>
-                <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
-                  <ArrowUpRight className="h-4 w-4" />
-                </div>
-              </div>
-              <div className="mt-2">
-                {stat.isAction || stat.isUpload ? (
-                  <div className="flex items-center gap-4 cursor-pointer">
-                    <div className={`${stat.textColor} bg-white p-3 rounded-lg shadow-sm`}>
-                      {stat.icon}
-                    </div>
-                    <span className="text-xl font-medium text-gray-600 whitespace-pre-line leading-tight">{stat.value}</span>
+                <p className="text-sm font-semibold tracking-wide">
+                  {stat.title}
+                </p>
+                {stat.icon ? (
+                  <div
+                    className={`${stat.textColor} rounded-lg bg-white p-2 shadow-sm`}
+                  >
+                    {stat.icon}
                   </div>
                 ) : (
-                  <>
-                    <p className="text-3xl font-bold tracking-tight">{stat.value}</p>
-                    <p className={`mt-2 text-sm font-medium ${stat.textColor}`}>
-                      {stat.change} from last month
-                    </p>
-                  </>
+                  <div
+                    className={`${stat.textColor} rounded-lg bg-white p-2 shadow-sm`}
+                  >
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                )}
+              </div>
+              <div className="mt-2">
+                <p className="text-3xl font-bold tracking-tight">
+                  {stat.value}
+                </p>
+                {!stat.isUpload && (
+                  <p className={`mt-2 text-sm font-medium ${stat.textColor}`}>
+                    {stat.change} from last month
+                  </p>
                 )}
               </div>
             </div>
           ))}
+          <div className="absolute top-0 right-[-400px]">
+            <Component />
+          </div>
         </div>
       </div>
       <div className="mt-10 ml-[-180px]">
