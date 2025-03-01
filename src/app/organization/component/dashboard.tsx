@@ -56,20 +56,24 @@ const Dashboard = () => {
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className={`${stat.color} rounded-xl p-5 shadow-sm w-[260px] h-[160px]`}
+              className={`${stat.color} rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-[260px] h-[160px] flex flex-col justify-between border border-gray-100`}
             >
               <div className="flex items-center justify-between">
-                <p className="text-sm font-medium">{stat.title}</p>
+                <p className="text-sm font-semibold tracking-wide">{stat.title}</p>
                 {stat.icon ? (
-                  stat.icon
+                  <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
+                    {stat.icon}
+                  </div>
                 ) : (
-                  <ArrowUpRight className={`h-4 w-4 ${stat.textColor}`} />
+                  <div className={`${stat.textColor} bg-white p-2 rounded-lg shadow-sm`}>
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
                 )}
               </div>
-              <div className="mt-4">
-                <p className="text-3xl font-bold">{stat.value}</p>
+              <div className="mt-2">
+                <p className="text-3xl font-bold tracking-tight">{stat.value}</p>
                 {!stat.isUpload && (
-                  <p className={`mt-1 text-sm ${stat.textColor}`}>
+                  <p className={`mt-2 text-sm font-medium ${stat.textColor}`}>
                     {stat.change} from last month
                   </p>
                 )}
