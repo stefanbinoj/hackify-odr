@@ -172,11 +172,7 @@ const Sidebar = () => {
         <div className="flex h-full flex-col">
           <div className="flex h-20 items-center justify-center px-8">
             <a href="javascript:void(0)" className="flex-none">
-              <img
-                src="https://floatui.com/logo-letter.png"
-                width={35}
-                className="mx-auto"
-              />
+              <img src="/images/logo.png" width={35} className="mx-auto" />
             </a>
           </div>
           <div className="flex h-full flex-1 flex-col">
@@ -218,7 +214,7 @@ const Sidebar = () => {
                     <Avatar.Root>
                       <Avatar.Image
                         className="flex h-12 w-12 cursor-pointer items-center gap-x-4 rounded-full ring-gray-800 ring-offset-2 duration-150 focus:ring-2"
-                        src="https://randomuser.me/api/portraits/women/79.jpg"
+                        src="/images/kfc1.png"
                         alt="vienna"
                       />
                       <Avatar.Fallback

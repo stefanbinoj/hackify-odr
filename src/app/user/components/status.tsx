@@ -36,10 +36,24 @@ const timelineSteps: TimelineStep[] = [
     completed: true,
   },
   {
+    id: 22,
+    title: "Mediation Initial Review",
+    description: "Circumstances head",
+    date: "Mar 24",
+    completed: true,
+  },
+  {
     id: 3,
     title: "Assessment",
     description: "Initial findings shared",
     date: "Apr 2",
+    completed: true,
+  },
+  {
+    id: 33,
+    title: "Contacting opposite party",
+    description: "Contacted opposite party",
+    date: "Apr 10",
     completed: true,
   },
   {
@@ -55,6 +69,13 @@ const timelineSteps: TimelineStep[] = [
     description: "Draft submitted",
     date: "Apr 28",
     completed: true,
+  },
+  {
+    id: 55,
+    title: "Signing of Proposal",
+    description: "Signing submitted",
+    date: "Apr 29",
+    completed: false,
   },
   {
     id: 6,
@@ -119,6 +140,7 @@ const CASoices = [
 
 const History = () => {
   const [row, setRow] = useState<any>(CASoices[0])
+
   return (
     <div className="ml-10 min-h-screen flex-col items-center justify-center">
       <div className="mb-10 ml-50 w-fit self-center rounded-2xl px-5 pt-5 shadow-lg">
