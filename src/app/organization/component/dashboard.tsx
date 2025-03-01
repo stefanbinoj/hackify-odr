@@ -19,8 +19,8 @@ const Dashboard = () => {
       textColor: "text-green-600",
     },
     {
-      title: "Track Cases",
-      value: "Track\nDisputes",
+      title: "Track Disputes",
+      value: "Track Cases",
       icon: <ArrowUpRight className="h-12 w-12" />,
       color: "bg-indigo-50",
       textColor: "text-indigo-600",
