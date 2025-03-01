@@ -6,28 +6,28 @@ const Dashboard = () => {
   const stats = [
     {
       title: "Active Disputes",
-      value: "45",
+      value: "450",
       change: "+12.5%",
       color: "bg-blue-50",
       textColor: "text-blue-600",
     },
     {
       title: "Resolved Disputes",
-      value: "126",
+      value: "1260",
       change: "+8.2%",
       color: "bg-green-50",
       textColor: "text-green-600",
     },
     {
       title: "Disputes for Approval",
-      value: "23",
+      value: "2300",
       change: "+5.4%",
       color: "bg-orange-50",
       textColor: "text-orange-600",
     },
     {
       title: "Unapproved Disputes",
-      value: "12",
+      value: "120",
       change: "-3.2%",
       color: "bg-red-50",
       textColor: "text-red-600",
