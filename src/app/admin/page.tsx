@@ -218,7 +218,7 @@ const Sidebar = () => {
                     <Avatar.Root>
                       <Avatar.Image
                         className="flex h-12 w-12 cursor-pointer items-center gap-x-4 rounded-full ring-gray-800 ring-offset-2 duration-150 focus:ring-2"
-                        src="/images/kfc1.png"
+                        src="/images/amal.png"
                         alt="vienna"
                       />
                       <Avatar.Fallback

@@ -20,6 +20,7 @@ import {
   UserCog,
 } from "lucide-react"
 import { useState } from "react"
+import { ToggleGroupDemo } from "./component/selectionComponent"
 
 type TimelineStep = {
   id: number
@@ -295,6 +296,10 @@ const History = () => {
 
   return (
     <div className="ml-10 min-h-screen flex-col items-center justify-center">
+      <div className="mb-10 ml-[-90px] flex justify-center rounded-4xl">
+        <ToggleGroupDemo />
+      </div>
+
       <Table className="ml-2 border-2">
         <TableHeader>
           <TableRow>
@@ -313,7 +318,9 @@ const History = () => {
               onClick={() => setRow(CASoice)}
             >
               <TableCell className="font-medium">{CASoice.CASEID}</TableCell>
-              <TableCell className="font-medium">{CASoice.PETITIONER}</TableCell>
+              <TableCell className="font-medium">
+                {CASoice.PETITIONER}
+              </TableCell>
               <TableCell>{CASoice.MEDIATOR}</TableCell>
               <TableCell>{CASoice.RESPONDENT}</TableCell>
               <TableCell>
@@ -355,7 +362,9 @@ const History = () => {
                     >
                       {index % 2 === 0 && (
                         <>
-                          <h3 className="text-sm font-semibold">{step.title}</h3>
+                          <h3 className="text-sm font-semibold">
+                            {step.title}
+                          </h3>
                           <p className="text-muted-foreground text-xs">
                             {step.date}
                           </p>
@@ -393,7 +402,9 @@ const History = () => {
                     >
                       {index % 2 === 1 && (
                         <>
-                          <h3 className="text-sm font-semibold">{step.title}</h3>
+                          <h3 className="text-sm font-semibold">
+                            {step.title}
+                          </h3>
                           <p className="text-muted-foreground text-xs">
                             {step.date}
                           </p>
