@@ -1,5 +1,5 @@
-import { ArrowUpRight, Plus, Search } from "lucide-react"
-import { Chart2 } from "./components/chart2"
+import { ArrowUpRight, Plus } from "lucide-react"
+import Chart2222 from "./components/chart"
 import { Component } from "./components/piechart"
 
 const Dashboard = () => {
@@ -21,7 +21,7 @@ const Dashboard = () => {
     {
       title: "Track Cases",
       value: "Track\nDisputes",
-      icon: <Search className="h-12 w-12" />,
+      icon: <ArrowUpRight className="h-12 w-12" />,
       color: "bg-indigo-50",
       textColor: "text-indigo-600",
       isAction: true,
@@ -95,8 +95,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 ml-[-180px]">
-        <Chart2 />
+      <div className="mt-10">
+        <Chart2222 />
       </div>
     </>
   )
